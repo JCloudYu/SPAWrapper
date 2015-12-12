@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.lineng.app.queuecounter" version="0.1.0-proto" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+	<name>SPAWrapper</name>
+	<description>Default project wrapper for cordova based single page applications</description>
+	<author email="dev@mail.purimize.com" href="http://cordova.io">JCloudYu</author>
+	<content src="index.html"/>
+
+	<!-- Plugin Dependency -->
+	<plugin name="cordova-plugin-whitelist" spec="1"/>
+	<plugin name="https://github.com/JCloudYu/CordovaEnableViewportScaleSupport.git" spec="0.1"/>
+	<plugin name="https://github.com/JCloudYu/CordovaPreferences.git" spec="0.1"/>
+
+	<!-- Environmental Configurations -->
+	<preference name="EnableViewportScale" value="true" />
+	<preference name="DisallowOverScroll" value="true" />
+	<preference name="Orientation" value="portrait" />
+
+	<!-- Origin Control -->>
+	<access origin="*"/>
+
+	<!-- Basic Indent -->
+	<allow-intent href="http://*/*"/>
+	<allow-intent href="https://*/*"/>
+	<allow-intent href="tel:*"/>
+	<allow-intent href="sms:*"/>
+	<allow-intent href="mailto:*"/>
+	<allow-intent href="geo:*"/>
+
+	<!-- Platform Specific Configurations -->
+	<platform name="android">
+		<allow-intent href="market:*"/>
+	</platform>
+	<platform name="ios">
+		<allow-intent href="itms:*"/>
+		<allow-intent href="itms-apps:*"/>
+	</platform>
+</widget>

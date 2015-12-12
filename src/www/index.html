@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline';">
+		<title>BootLoader</title>
+	</head>
+	<body>
+		<script style="display:none;" type="application/javascript">
+			(function(){
+				var bootPath = localStorage.getItem( "app-start-page" );
+				window.location.replace( (bootPath) ? bootPath : '../__firstRun/__firstRun.html' );
+			})();
+		</script>
+	</body>
+</html>
