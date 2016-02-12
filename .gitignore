@@ -2,3 +2,8 @@
 Thumbs.db
 thumbs.db
 .idea
+
+src/platforms/*
+src/plugins/*
+
+!ANCHOR.md
