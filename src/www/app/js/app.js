@@ -7,9 +7,7 @@
 		}
 	});
 
-	var dependecies = [
-		'cordova'
-	];
+	var dependecies = [ 'cordova' ];
 
 	require( dependecies, function(){
 
