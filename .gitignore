@@ -3,7 +3,7 @@ Thumbs.db
 thumbs.db
 .idea
 
-src/platforms/*
-src/plugins/*
+platforms/*
+plugins/*
 
 !ANCHOR.md
