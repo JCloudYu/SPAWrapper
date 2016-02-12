@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="viewport-fill fill-all">
 	<head>
 		<!--
 		Customize this policy to fit your own app's needs. For more guidance, see:
@@ -10,23 +10,31 @@
 			* Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
 				* Enable inline JS: add 'unsafe-inline' to default-src
 		-->
-		<meta http-equiv="Content-Security-Policy" content="default-src 'self' https://api.purimize.com data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *;">
+		<meta http-equiv="Content-Security-Policy"
+			  content="default-src 'self' https://api.purimize.com data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' https://api.purimize.com 'unsafe-inline'; media-src *;">
 		<meta name="format-detection" content="telephone=no">
 		<meta name="msapplication-tap-highlight" content="no">
 		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-		<link type="text/css" rel="stylesheet" href="./css/app.css" />
 
-		<title>BootLoader</title>
+		<link type="text/css" rel="stylesheet" href="https://api.purimize.com/cache/lib/css/oops,oops.app,oops.ui-base,oops.ui-font" />
+		<link type="text/css" rel="stylesheet" href="./css/app.css" />
+		<link type="text/css" rel="stylesheet" href="./css/demo.css" />
+
+		<title>AppWrapper</title>
 	</head>
 	<body>
-		<div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
-        </div>
-        <script data-main="js/app" type="application/javascript"
-        		src="https://api.purimize.com/cache/lib/js/jquery,promise,promise-done,moment,oops,oops.string,oops.util,oops.app,oops.net,oops.app.tool,require"></script>
+		<div class="stage" data-base-width="640">
+			<div data-id="main-view" class="scene parent-fill fill-all">
+				<!-- Start DEMO Section -->
+				<div class="app">
+					<h1>Apache Cordova</h1>
+					<div class="blink"><p class="event listening">Connecting to Device</p></div>
+				</div>
+				<!-- End DEMO Section -->
+			</div>
+		</div>
+
+		<script data-main="js/app" type="application/javascript"
+				src="https://api.purimize.com/cache/lib/js/jquery,jquery-tmpl,promise,promise-done,moment,oops,oops.string,oops.util,oops.runtime,oops.net,require"></script>
 	</body>
 </html>
