@@ -8,7 +8,7 @@
 	});
 
 	var dependecies = [
-//		'cordova'
+		'cordova'
 	];
 
 	require( dependecies, function(){
