@@ -4,10 +4,8 @@
 	requirejs.config({
 		baseUrl:"js",
 		paths: {
-			controller: './controller',
-			module: './module',
 			lib: './',
-			cordova: '../../../cordova'
+			cordova: '../../cordova'
 		}
 	});
 
