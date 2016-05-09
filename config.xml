@@ -8,9 +8,9 @@
 
 
 	<!-- Plugin Dependencies -->
-	<plugin name="cordova-plugin-whitelist" spec="1"/>
-	<plugin name="cordova-plugin-dialogs" spec="~1.2.0"/>
-    <plugin name="cordova-plugin-console" spec="~1.0.2" />
+	<plugin name="cordova-plugin-whitelist" spec=">=1"/>
+	<plugin name="cordova-plugin-dialogs" spec=">=1.2.0"/>
+    <plugin name="cordova-plugin-console" spec=">=1.0.2" />
 	<plugin name="org.purimize.cordova.viewportfix" spec="https://github.com/JCloudYu/CordovaEnableViewportScaleSupport.git" />
 	<plugin name="org.purimize.cordova.preferences" spec="https://github.com/JCloudYu/CordovaPreferences.git" />
 
