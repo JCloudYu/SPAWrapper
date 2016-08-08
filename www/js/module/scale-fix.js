@@ -1,10 +1,7 @@
 (function() {
 	"use strict";
 
-	var
-	kernel = pump.instantiate( 'module-scale-fix' );
-
-
+	var kernel = pump.instantiate( 'module-scale-fix' );
 
 	kernel.on( CORE.EVENT.LAYOUT_UI, function( e, param ) {
 		$( '.stage' ).each(function(){
