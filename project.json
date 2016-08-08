@@ -1,0 +1,14 @@
+{
+	"serial": "000010000006",
+	"version": "1.0.1-0",
+	"project_id": "org.purimize.app.spawrapper",
+	"name": "DemoWrapper",
+	"description": "DemoProject",
+	"icon": "res/build/icon.png",
+	"splash": "res/build/splash.png",
+	"files": [
+		{ "op":"copy",		"src":"res/build/icon.png",	 "dest":"www/res/img/logo.png" },
+		{ "op":"copy",		"src":"res/build/splash.png", "dest":"www/res/img/splash.png" }
+	],
+	"expansion":[]
+}

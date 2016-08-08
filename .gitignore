@@ -2,7 +2,9 @@
 Thumbs.db
 .idea
 
-platforms/*
-plugins/*
+/platforms/*
+/plugins/*
+/res/platform/*
+/config.xml
 
 !ANCHOR.md
