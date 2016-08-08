@@ -1,0 +1,6 @@
+{
+	"components": [
+		{ "view":"comp.html", "script":"comp.js", "style":"comp.css" },
+		{ "view":"tmpl.html", "anchor": "[data-anchor=\"tpl\"]" }
+	]
+}
