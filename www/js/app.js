@@ -32,8 +32,11 @@
 		function(){
 			var body = $( 'body' );
 			
-			if ( window.device && (device.platform.toLocaleLowerCase() == "ios") )
-				body.attr( 'data-platform', 'ios' );
+			if ( window.device )
+			{
+				body.attr( 'data-platform', device.platform.toLocaleLowerCase() )
+					.attr( 'data-hardware-model', device.model );
+			}
 		}
 	])
 	.pipe([
@@ -59,7 +62,10 @@
 			.fire( CORE.EVENT.SYNC_HEART_BEAT,	'boot final',		false );
 	})
 	.then(function(){
-		StatusBar.styleBlackTranslucent();
+		if ( window.cordova )
+		{
+			StatusBar.styleBlackTranslucent();
+		}
 	})
 	.catch(function( error ){
 		console.log( error );

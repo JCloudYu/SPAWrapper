@@ -43,9 +43,9 @@
 	padding               :2px 0;
 }
 
-.main-view .event.listening{ background-color :#333; }
-
+.main-view .event.listening{ background-color :#333333; }
 .main-view .event.received{ background-color :#4B946A; }
+.main-view .event.received.no-cordova{ background-color :#94824B; }
 
 @keyframes main-view-fade{
 	from{ opacity :1.0; }
