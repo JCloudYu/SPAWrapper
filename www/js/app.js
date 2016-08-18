@@ -52,12 +52,6 @@
 				body.attr( 'data-app-id', appId = env.preference( 'App-Identifier' ) )
 					.attr( 'data-version', env.preference( 'AppVersion' ) );
 			}
-			
-			if ( window.device )
-			{
-				body.attr( 'data-platform', device.platform.toLocaleLowerCase() )
-					.attr( 'data-hardware-model', device.model );
-			}
 				
 			return pipe([
 //				{ path:'https://api.purimize.com/cache/' + appId + '/extension' +'.js',	type:'js', modulize:true, cache:false }
