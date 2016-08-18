@@ -29,6 +29,10 @@
 		{
 			IO::STDOUT( "App Id... done!\n" );
 			$config->attr( 'id', $value );
+			
+			$config->addChild( $_obj = new PBTXJSON( 'preference' ) );
+			$_obj->attr( 'name', 'App-Identifier' );
+			$_obj->attr( 'value', $value );
 		}
 	
 		if ( ($value = trim(@"{$project[ 'version' ]}")) != "" )
