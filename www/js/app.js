@@ -72,15 +72,16 @@
 		]);
 	})
 	.then(function(){
-		pump.fire( CORE.EVENT.SYNC_HEART_BEAT,	'boot init',		false )
-			.fire( CORE.EVENT.SYNC_HEART_BEAT,	'layout init',		false )
-			.fire( CORE.EVENT.LAYOUT_UI, 		'',					false )
-			.fire( CORE.EVENT.SYNC_HEART_BEAT,	'layout frame',		false )
-			.fire( CORE.EVENT.SYNC_HEART_BEAT,	'layout sync',		false )
+		return pump
+		.fire( CORE.EVENT.SYNC_HEART_BEAT,	'boot init',		false )
+		.fire( CORE.EVENT.SYNC_HEART_BEAT,	'layout init',		false )
+		.fire( CORE.EVENT.LAYOUT_UI, 		'',					false )
+		.fire( CORE.EVENT.SYNC_HEART_BEAT,	'layout frame',		false )
+		.fire( CORE.EVENT.SYNC_HEART_BEAT,	'layout sync',		false )
 
-			.fire( CORE.EVENT.SYNC_HEART_BEAT,	'boot stage 1',		false )
-			.fire( CORE.EVENT.SYNC_HEART_BEAT,	'boot stage 2',		false )
-			.fire( CORE.EVENT.SYNC_HEART_BEAT,	'boot final',		false );
+		.fire( CORE.EVENT.SYNC_HEART_BEAT,	'boot stage 1',		false )
+		.fire( CORE.EVENT.SYNC_HEART_BEAT,	'boot stage 2',		false )
+		.fire( CORE.EVENT.SYNC_HEART_BEAT,	'boot final',		false );
 	})
 	.then(function(){
 		if ( window.cordova )
