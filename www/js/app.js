@@ -1,7 +1,7 @@
 (function(){
 	"use strict";
 
-	var trigger, errors = [],
+	var trigger, errors = [], body = $( 'body' ),
 	initPromise = new Promise(function(fulfill){ trigger = fulfill; });
 	
 	
@@ -21,26 +21,48 @@
 			.ready(function(){  doc.trigger( 'dom-ready' ); });
 		}
 	])
-	// INFO: Load system-wide configuration files and other online resources
 	.pipe([
-		{ "path":'https://api.purimize.com/cache/library/js/lib/misc/misc.min.js?' + baseTime,				type:"js" },
-		{ "path":'https://api.purimize.com/cache/lib/js/jquery-tmpl,moment,promise-done,oops?' + baseTime,	type:"js"},
-		{ "path":"https://api.purimize.com/cache/lib/css/oops,oops.app,oops.ui-base,oops.ui-font",			type:"css" },
-		function(){ return initPromise; },
-		
+		// INFO: Make sure that the cordova environment is initialized completely
 		function(){
-			var body = $( 'body' );
+			return initPromise.then(function(){
+				if ( window.device )
+				{
+					body.attr( 'data-platform',			device.platform.toLocaleLowerCase() )
+						.attr( 'data-hardware-model',	device.model );
+				}
+			});
+		}
+	])
+	.pipe([
+		{ "path":'https://api.purimize.com/cache/library/js/lib/misc/misc.min2.js',					type:"js", cache:false },
+		{ "path":'https://api.purimize.com/cache/lib/js/jquery-tmpl,moment,promise-done,oops',		type:"js", cache:true },
+		{ "path":"https://api.purimize.com/cache/lib/css/oops,oops.app,oops.ui-base,oops.ui-font",	type:"css" },
+		{ path:"./css/app.css", type:"css" },
+		undefined,
+	
+		{ path:'js/module/scale-fix.js',	type:'js', modulize:true, cache:false },
+		{ path:'js/module/pref.js',			type:'js', modulize:true, cache:false },
+		function(){
+			var appId;
+		
+			window.env.layout.calc();
+			
+			if ( window.env.preference )
+			{
+				body.attr( 'data-app-id', appId = env.preference( 'App-Identifier' ) )
+					.attr( 'data-version', env.preference( 'AppVersion' ) );
+			}
 			
 			if ( window.device )
 			{
 				body.attr( 'data-platform', device.platform.toLocaleLowerCase() )
 					.attr( 'data-hardware-model', device.model );
 			}
+				
+			return pipe([
+//				{ path:'https://api.purimize.com/cache/' + appId + '/extension' +'.js',	type:'js', modulize:true, cache:false }
+			]);
 		}
-	])
-	.pipe([
-		'js/module/scale-fix.js',
-		undefined
 	])
 	.then(function(){
 		pipe.components.base_path( './comps' );
