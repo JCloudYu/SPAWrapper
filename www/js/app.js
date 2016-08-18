@@ -1,26 +1,25 @@
 (function(){
 	"use strict";
 
-	var trigger,
-	baseTime	= (new Date()).getTime(),
+	var trigger, errors = [],
 	initPromise = new Promise(function(fulfill){ trigger = fulfill; });
-
-
-
+	
+	
+	
 	// INFO: Initialize cordova system and main overlay asap
 	pipe([
+		function(){ window.env = {getErrors:function(){return errors.slice();}}; },
+		'js/module/overlay.js',
+		undefined,
+		
+		
 		'./cordova.js',
+		'js/constant.js',
 		function(){
 			var doc = $(document);
 			doc.one( window.cordova ? 'deviceready' : 'dom-ready', trigger )
 			.ready(function(){  doc.trigger( 'dom-ready' ); });
-		},
-
-		'js/constant.js',
-		undefined
-
-//		'js/controller/overlay.js',
-//		undefined
+		}
 	])
 	// INFO: Load system-wide configuration files and other online resources
 	.pipe([
@@ -63,11 +62,14 @@
 	})
 	.then(function(){
 		if ( window.cordova )
-		{
 			StatusBar.styleBlackTranslucent();
-		}
+		
+		overlay.hide();
 	})
 	.catch(function( error ){
+		overlay.show( "<span data-id='error-detail'>Error</span>" );
+		
 		console.log( error );
+		errors.push( error );
 	});
 })();
