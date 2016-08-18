@@ -27,9 +27,12 @@
         { "@@node":"plugin",		"name":"cordova-plugin-inappbrowser", "spec":"~1.4.0" },
 
 
-        { "@@node":"preference",	"name":"EnableViewportScale", "value":"true" },
-        { "@@node":"preference",	"name":"DisallowOverScroll", "value":"true" },
-        { "@@node":"preference",	"name":"Orientation", "value":"portrait" },
+        { "@@node":"preference",	"name":"EnableViewportScale",		"value":"true" },
+        { "@@node":"preference",	"name":"DisallowOverScroll",		"value":"true" },
+        { "@@node":"preference",	"name":"Orientation",				"value":"portrait" },
+        { "@@node":"preference",	"name":"AutoHideSplashScreen",		"value":"true" },
+        { "@@node":"preference",	"name":"SplashScreenDelay",			"value":"3000" },
+        { "@@node":"preference",	"name":"ShowSplashScreenSpinner",	"value":"false" },
 
 
         { "@@node":"access",			"origin":"*" },
