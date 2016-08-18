@@ -34,7 +34,7 @@
 		}
 	])
 	.pipe([
-		{ "path":'https://api.purimize.com/cache/library/js/lib/misc/misc.min2.js',					type:"js", cache:false },
+		{ "path":'https://api.purimize.com/cache/library/stable/js/util.min.js',					type:"js", cache:false },
 		{ "path":'https://api.purimize.com/cache/lib/js/jquery-tmpl,moment,promise-done,oops',		type:"js", cache:true },
 		{ "path":"https://api.purimize.com/cache/lib/css/oops,oops.app,oops.ui-base,oops.ui-font",	type:"css" },
 		{ path:"./css/app.css", type:"css" },
