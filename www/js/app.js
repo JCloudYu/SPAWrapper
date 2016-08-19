@@ -69,7 +69,6 @@
 		return pump
 		.fire( CORE.EVENT.SYNC_HEART_BEAT,	'boot init',		false )
 		.fire( CORE.EVENT.SYNC_HEART_BEAT,	'layout init',		false )
-		.fire( CORE.EVENT.LAYOUT_UI, 		'',					false )
 		.fire( CORE.EVENT.SYNC_HEART_BEAT,	'layout frame',		false )
 		.fire( CORE.EVENT.SYNC_HEART_BEAT,	'layout sync',		false )
 
