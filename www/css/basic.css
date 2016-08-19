@@ -28,7 +28,6 @@ body[data-platform="ios"] .loading-overlay { top:-20px; height:calc(100% + 20px)
 	position:absolute; top:0; left:0; width:100%; height:100%;
 	background:#FFF;
 }
-
 .loading-overlay .msg {
 	position:relative; display:inline-block;
 	box-sizing:border-box; padding:20px;
@@ -37,3 +36,6 @@ body[data-platform="ios"] .loading-overlay { top:-20px; height:calc(100% + 20px)
 	color:#000;
 	word-break:break-all;
 }
+
+
+span[data-anchor] { display:none; }
