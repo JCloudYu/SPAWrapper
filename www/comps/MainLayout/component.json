@@ -1,0 +1,5 @@
+{
+	"components":[
+		{ "view":"layout.html" }
+	]
+}

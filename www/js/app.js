@@ -30,6 +30,11 @@
 					body.attr( 'data-platform',			device.platform.toLocaleLowerCase() )
 						.attr( 'data-hardware-model',	device.model );
 				}
+				
+				pipe.components.base_path( './comps' );
+				return pipe.components([
+					{ name:"MainLayout", anchor:'[data-anchor="app-layout"]' }
+				]);
 			});
 		}
 	])
