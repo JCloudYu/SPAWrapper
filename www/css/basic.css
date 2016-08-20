@@ -38,4 +38,4 @@ body[data-platform="ios"] .loading-overlay { top:-20px; height:calc(100% + 20px)
 }
 
 
-span[data-anchor] { display:none; }
+span[data-anchor], script[data-tpl] { display:none; }
