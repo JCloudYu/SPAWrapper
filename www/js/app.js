@@ -33,7 +33,7 @@
 				
 				pipe.components.base_path( './comps' );
 				return pipe.components([
-					{ name:"MainLayout", anchor:'[data-anchor="app-layout"]' }
+					{ name:"MainLayout", anchor:'[data-anchor="app-layout"]', "async":false, "remove-anchor":true }
 				]);
 			});
 		}
@@ -67,7 +67,7 @@
 		pipe.components.base_path( './comps' );
 
 		return pipe.components([
-			{ name:'MainView', anchor:'[data-anchor="main-view"]' }
+			{ name:'MainView', anchor:'[data-anchor="main-view"]', "async":false, "remove-anchor":true }
 		]);
 	})
 	.then(function(){
