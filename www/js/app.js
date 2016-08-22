@@ -72,14 +72,11 @@
 	})
 	.then(function(){
 		return pump
-		.fire( CORE.EVENT.SYNC_HEART_BEAT,	'boot init',		false )
-		.fire( CORE.EVENT.SYNC_HEART_BEAT,	'layout init',		false )
-		.fire( CORE.EVENT.SYNC_HEART_BEAT,	'layout frame',		false )
-		.fire( CORE.EVENT.SYNC_HEART_BEAT,	'layout sync',		false )
-
-		.fire( CORE.EVENT.SYNC_HEART_BEAT,	'boot stage 1',		false )
-		.fire( CORE.EVENT.SYNC_HEART_BEAT,	'boot stage 2',		false )
-		.fire( CORE.EVENT.SYNC_HEART_BEAT,	'boot final',		false );
+		.fire( CORE.EVENT.SYNC_HEART_BEAT,	'heartbeat boot init'	)
+		.fire( CORE.EVENT.SYNC_HEART_BEAT,	'heartbeat boot layout'	)
+		.fire( CORE.EVENT.SYNC_HEART_BEAT,	'heartbeat boot data'	)
+		.fire( CORE.EVENT.SYNC_HEART_BEAT,	'heartbeat boot late'	)
+		.fire( CORE.EVENT.SYNC_HEART_BEAT,	'heartbeat boot final'	);
 	})
 	.then(function(){
 		if ( window.cordova )
