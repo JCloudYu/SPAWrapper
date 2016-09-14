@@ -1,11 +1,7 @@
 (function() {
 	"use strict";
 	
-	window.env = window.env || {};
-	
-	
-	
-	$U.merge( window.env, {
+	window.env = $U.merge( window.env || {}, {
 		layout: {
 			calc: function() {
 	
