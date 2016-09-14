@@ -9,6 +9,7 @@
         { "@@node":"description",	"@@children":"Default project wrapper for cordova based single page applications" },
         { "@@node":"author",		"email":"dev@mail.purimize.com", "href":"http://cordova.io", "@@children":"JCloudYu" },
         { "@@node":"content",		"src":"app.html" },
+		{ "@@node":"preference",	"name":"SPAWrapperVersion", "value":"1.0.1" },
 
 
 
