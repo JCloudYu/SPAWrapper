@@ -3,7 +3,7 @@
 
 	pump.instantiate( function( kernelOp ){
 		kernelOp.on( CORE.EVENT.SYNC_HEART_BEAT, function( e, stage ){
-			if ( stage != "heartbeat boot final" ) return;
+			if ( stage != "heartbeat final" ) return;
 			
 			var target = $( '[data-id="main-view"] .blink' ).find( '.event' );
 			target.addClass( 'received' ).removeClass( 'listening' ).text( 'Device is Ready' );
