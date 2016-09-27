@@ -3,8 +3,8 @@
 
 	window.CORE = $U.merge( window.CORE || {}, {
 		EVENT: {
-			SYNC_BOOT_STATE: 'boot state',
-			SYNC_HEART_BEAT: 'heartbeat'
+			SYNC_BOOT_STATE:		'boot state',
+			SYNC_HEART_BEAT:		'heartbeat'
 		},
 		CONST: {
 			BOOT_STATES: {
@@ -18,5 +18,5 @@
 				BOOT: 'boot'
 			}
 		}
-	});
+	}, false, true );
 })();
