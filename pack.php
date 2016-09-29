@@ -312,7 +312,7 @@
 			
 			return $object;
 		}
-		private static function& __renderXMLNode( PBTXJSON &$node ) {
+		private static function __renderXMLNode( PBTXJSON &$node ) {
 			
 			$childContent = "";
 			if ( !is_array(@$node->_children) )
@@ -334,7 +334,7 @@
 			$childContent = trim($childContent);
 			return empty($childContent) ? "<{$node->_nodeName}{$attr} />" : "<{$node->_nodeName}{$attr}>{$childContent}</{$node->_nodeName}>";
 		}
-		private static function& __renderXMLAttribute( PBTXJSON &$node ) {
+		private static function __renderXMLAttribute( PBTXJSON &$node ) {
 			$attributes = [];
 			foreach( $node->_attributes as $attr => $value )
 			{
