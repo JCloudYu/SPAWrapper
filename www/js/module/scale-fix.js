@@ -4,7 +4,6 @@
 	window.env = $U.merge( window.env || {}, {
 		layout: {
 			calc: function() {
-	
 				$( '.stage' ).each(function(){
 					var
 					target = $( this ),
@@ -20,13 +19,15 @@
 						width:  parent.width(),
 						height: parent.height()
 					},
-					bWidth	= parseInt( target.attr( 'data-base-width' ) ),
-					scale	= parentSize.width / bWidth,
-					bHeight = Math.ceil( parentSize.height / scale );
+					bWidth			= parseInt( target.attr( 'data-base-width' ) ),
+					scale			= parentSize.width / bWidth,
+					scale_inverse	= 1 / scale,
+					bHeight 		= Math.ceil( parentSize.height * scale_inverse );
 		
 		
 					target
-					.attr( 'data-scale', scale )
+					.data( 'scale', scale_inverse )
+					.attr( 'data-scale', scale_inverse )
 					.css({
 						width: bWidth, height: bHeight,
 						'transform-origin': '0 0',
