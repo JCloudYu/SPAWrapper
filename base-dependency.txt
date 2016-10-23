@@ -1,0 +1,7 @@
+https://api.purimize.com/cache/lib/js/jquery,promise,hammerjs,pump,pipe,utility/_.js
+https://cdn.rawgit.com/JCloudYu/CryptoJS/master/rollups/md5.js
+https://cdn.rawgit.com/JCloudYu/CryptoJS/master/rollups/sha1.js
+https://cdn.rawgit.com/JCloudYu/CryptoJS/master/rollups/sha3.js
+https://cdn.rawgit.com/JCloudYu/CryptoJS/master/rollups/sha512.js
+https://cdn.rawgit.com/JCloudYu/CryptoJS/master/components/enc-base64-min.js
+https://cdn.rawgit.com/JCloudYu/CryptoJS/master/components/enc-utf16-min.js

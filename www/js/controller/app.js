@@ -1,6 +1,9 @@
 (function() {
 	"use strict";
 	
+	pipe.__CSS_USE_SPECIAL_TREATMENT = true; // Use this only if you have problem hooking onload event of link tag
+	
+	
 	var _initTrigger,
 	_body	= $( 'body' ),
 	_kernel	= pump.instantiate( 'app-controller' ),
@@ -67,6 +70,7 @@
 		
 			
 			{ path:'js/module/scale-fix.js',	type:'js', modulize:true, cache:false },
+			{ path:'js/module/locale.js',		type:'js', modulize:true, cache:false },
 			function() {
 				window.env.layout.calc();
 				return _kernel.fire( CORE.EVENT.SYNC_BOOT_STATE, CORE.CONST.BOOT_STATES.ENVIRONMENT );
@@ -91,7 +95,9 @@
 		.fire( CORE.EVENT.SYNC_BOOT_STATE,	CORE.CONST.BOOT_STATES.SYNC_HEART_BEAT );
 	})
 	.on( CORE.EVENT.SYNC_WORKFLOW_CLEANUP, function( e ){
-		return Promise.resolve().then(function(){
+		return Promise.resolve()
+		.then(env.locale.batch)
+		.then(function(){
 			if ( window.cordova )
 				StatusBar.styleBlackTranslucent();
 			
