@@ -12,7 +12,7 @@ cat <<DOC  >> ../platforms/ios/cordova/lib/copy-www-build-step.js
 	console.log( "Copying bundle resources... " );
 
 	var fs = require( 'fs' ), code,
-	sourcePath	= "../../res/raw/",
+	sourcePath	= "../../external/raw/",
 	destPath	= path.join( process.env.BUILT_PRODUCTS_DIR, process.env.UNLOCALIZED_RESOURCES_FOLDER_PATH ),
 	command = 'cp -rf \'' + sourcePath + '\'* \'' + destPath + '\'';
 	
