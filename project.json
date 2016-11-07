@@ -4,11 +4,11 @@
 	"project_id": "org.purimize.app.spawrapper",
 	"name": "DemoWrapper",
 	"description": "DemoProject",
-	"icon": "res/build/icon.png",
-	"splash": "res/build/splash.png",
+	"icon": "external/build/icon.png",
+	"splash": "external/build/splash.png",
 	"files": [
-		{ "op":"copy",		"src":"res/build/icon.png",	 "dest":"www/res/img/logo.png" },
-		{ "op":"copy",		"src":"res/build/splash.png", "dest":"www/res/img/splash.png" }
+		{ "op":"copy",		"src":"external/build/icon.png",	 "dest":"www/res/img/logo.png" },
+		{ "op":"copy",		"src":"external/build/splash.png", "dest":"www/res/img/splash.png" }
 	],
 	"expansion":[]
 }
