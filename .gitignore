@@ -2,9 +2,9 @@
 Thumbs.db
 .idea
 
+/res
 /platforms/*
 /plugins/*
-/res/platform/*
 /config.xml
 /www/res/*
 
