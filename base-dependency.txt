@@ -5,3 +5,5 @@ https://cdn.rawgit.com/JCloudYu/CryptoJS/master/rollups/sha3.js
 https://cdn.rawgit.com/JCloudYu/CryptoJS/master/rollups/sha512.js
 https://cdn.rawgit.com/JCloudYu/CryptoJS/master/components/enc-base64-min.js
 https://cdn.rawgit.com/JCloudYu/CryptoJS/master/components/enc-utf16-min.js
+https://cdn.rawgit.com/techfort/LokiJS/master/src/lokijs.js
+https://cdn.rawgit.com/techfort/LokiJS/master/src/loki-indexed-adapter.js
