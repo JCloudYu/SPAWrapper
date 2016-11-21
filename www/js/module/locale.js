@@ -1,28 +1,23 @@
 //# sourceURL=locale.js
-
 (function() {
 	"use strict";
 	
 	
 	
 	var
-	_localeQueue = {},
+	_localeMap = {},
 	_locale = function( string ){
-		if ( !Array.isArray( string ) ) return ___TRANSLATE( string );
-		
-		var result = [];
-		string.forEach(function( str ){
-			result.push( ___TRANSLATE(str) );
-		});
-		return result;
+		return _localeMap[ string ] || string;
 	},
 	_loadLocale = function( path ){
 		return new Promise(function(fulfill, reject){
-			var identity = CryptoJS.MD5( path ).toString( CryptoJS.enc.Base64 );
-			if ( _localeQueue.hasOwnProperty( identity ) ) return fulfill();
-		
 			$.get( path, function( locale ){
-				_localeQueue[ identity ] = locale;
+				for( var mapStr in locale )
+				{
+					if ( !locale.hasOwnProperty(mapStr) ) continue;
+					_localeMap[mapStr] = locale[mapStr];
+				}
+				
 				fulfill();
 			}, 'json' )
 			.fail(reject);
@@ -32,16 +27,16 @@
 		return new Promise(function( fulfill ){
 			$( '[data-trans]' ).each(function(){
 				var target = $(this);
-				target.html( ___TRANSLATE( target.attr('data-trans') ) );
+				target.html( _locale( target.attr('data-trans') ) );
 			});
 			
 			$( '[data-trans-fields]' ).each(function(){
 				var
 				target = $(this),
-				fields = (target.attr( 'data-trans-fields' ) || '').split(',');
+				fields = target.attr( 'data-trans-fields' ).split(',');
 				
 				fields.forEach(function( fieldName ){
-					target.attr( fieldName, ___TRANSLATE( target.attr(fieldName) ) );
+					target.attr( fieldName, _locale( target.attr(fieldName) ) );
 				});
 			});
 			
@@ -49,8 +44,9 @@
 		});
 	};
 	
-	_locale.load	= _loadLocale;
-	_locale.batch	= _batchLocale;
+	_locale.translate	= _locale;
+	_locale.load		= _loadLocale;
+	_locale.batch		= _batchLocale;
 
 
 
@@ -68,19 +64,4 @@
 		
 		return promise.then(fulfill).catch(reject);
 	});
-	
-	
-	
-	
-	
-	
-	function ___TRANSLATE( string ){
-		var translation = undefined;
-		for( var token in _localeQueue ){
-			if ( !_localeQueue.hasOwnProperty(token) ) continue;
-			translation = _localeQueue[token][string] || translation;
-		}
-		
-		return translation || string;
-	}
 })();

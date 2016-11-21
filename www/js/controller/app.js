@@ -1,7 +1,7 @@
 (function() {
 	"use strict";
 	
-	pipe.__CSS_USE_SPECIAL_TREATMENT = true; // Use this only if you have problem hooking onload event of link tag
+	// pipe.__CSS_USE_SPECIAL_TREATMENT = true; // Use this only if you have problem hooking onload event of link tag
 	
 	
 	var _initTrigger,
@@ -33,11 +33,50 @@
 	})
 	.on( CORE.EVENT.SYNC_WORKFLOW_INIT, function( e ){
 		return pipe([
+			{ path:'js/module/locale.js', type:'js', modulize:true, cache:false },
+			function(){
+				return new Promise(function( fulfill, reject ){
+					navigator.globalization.getPreferredLanguage(
+						function( language ){
+							var
+							langPref = language.value.toLowerCase(),
+							langCode = langPref.split( '-' ),
+							locales	 = [];
+							
+							
+							if ( langCode.length == 1 )
+								locales.push( langCode[0] );
+							else
+							{
+								locales = langCode;
+								langCode.push( langPref );
+							}
+							
+							fulfill(locales);
+						},
+						fulfill.bind( null, [] )
+					);
+				});
+			},
+			function( locales ){
+				var promise = Promise.resolve();
+				locales.forEach(function( name ){
+					promise = promise.then(function(){
+						return env.locale.load( './locale/' + name + '.json' )
+						.catch(function(){});
+					})
+				});
+				
+				return promise;
+			},
+		
+			
+			
 			{ path:'js/module/pref.js',	type:'js',	cache:false, modulize:true },
 			function() {
 				if ( window.device )
 				{
-					_body.attr( 'data-platform',			device.platform.toLocaleLowerCase() )
+					_body.attr( 'data-platform',		device.platform.toLocaleLowerCase() )
 						.attr( 'data-hardware-model',	device.model );
 				}
 				
@@ -70,7 +109,6 @@
 		
 			
 			{ path:'js/module/scale-fix.js',	type:'js', modulize:true, cache:false },
-			{ path:'js/module/locale.js',		type:'js', modulize:true, cache:false },
 			function() {
 				window.env.layout.calc();
 				return _kernel.fire( CORE.EVENT.SYNC_BOOT_STATE, CORE.CONST.BOOT_STATES.ENVIRONMENT );

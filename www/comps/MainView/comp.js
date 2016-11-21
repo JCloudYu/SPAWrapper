@@ -6,7 +6,7 @@
 			if ( stage != "heartbeat final" ) return;
 			
 			var target = $( '[data-id="main-view"] .blink' ).find( '.event' );
-			target.addClass( 'received' ).removeClass( 'listening' ).text( 'Device is Ready' );
+			target.addClass( 'received' ).removeClass( 'listening' ).text( env.locale( 'Device is Ready' ) );
 			
 			if ( !window.cordova ) target.addClass( 'no-cordova' );
 			
